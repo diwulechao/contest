@@ -21,3 +21,4 @@ ProjectItem:D:\repo\contest\WebApplication1\Scripts\jquery.validate.js
 ProjectItem:D:\repo\contest\WebApplication1\Scripts\jquery.validate.unobtrusive.min.js
 ProjectItem:D:\repo\contest\WebApplication1\Scripts\jquery.validate.unobtrusive.js
 ProjectItem:D:\repo\contest\WebApplication1\App_Start\WebApiConfig.cs
+ProjectItem:D:\repo\contest\WebApplication1\Controllers\afterloginController.cs
