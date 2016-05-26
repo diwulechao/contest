@@ -23,3 +23,4 @@ ProjectItem:D:\repo\contest\WebApplication1\Scripts\jquery.validate.unobtrusive.
 ProjectItem:D:\repo\contest\WebApplication1\App_Start\WebApiConfig.cs
 ProjectItem:D:\repo\contest\WebApplication1\Controllers\afterloginController.cs
 ProjectItem:D:\repo\contest\WebApplication1\Models\TokenClass.cs
+ProjectItem:D:\repo\contest\WebApplication1\Models\PostData.cs
