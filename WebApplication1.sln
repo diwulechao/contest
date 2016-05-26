@@ -3,18 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{1BFF0CE0-E90A-486D-84D1-5CC62D3262C7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{ABAD604F-ABAE-4203-B190-2EF52E855B11}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
-		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{8C04F42F-9902-4EC2-8855-CB4BF24CC97C}"
-	ProjectSection(SolutionItems) = preProject
-		PublishScripts\Configurations\WebApplication1-WAWS-dev.json = PublishScripts\Configurations\WebApplication1-WAWS-dev.json
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{A203BB19-638A-4E64-A8F2-887AE344B5BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,15 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1BFF0CE0-E90A-486D-84D1-5CC62D3262C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BFF0CE0-E90A-486D-84D1-5CC62D3262C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BFF0CE0-E90A-486D-84D1-5CC62D3262C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BFF0CE0-E90A-486D-84D1-5CC62D3262C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A203BB19-638A-4E64-A8F2-887AE344B5BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A203BB19-638A-4E64-A8F2-887AE344B5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A203BB19-638A-4E64-A8F2-887AE344B5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A203BB19-638A-4E64-A8F2-887AE344B5BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8C04F42F-9902-4EC2-8855-CB4BF24CC97C} = {ABAD604F-ABAE-4203-B190-2EF52E855B11}
 	EndGlobalSection
 EndGlobal
