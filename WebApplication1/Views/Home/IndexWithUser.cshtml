@@ -35,7 +35,7 @@
     });
 
     $("#addnewfb").click(function () {
-        window.location.replace('https://www.facebook.com/dialog/oauth?client_id=619387381484849&scope=user_posts&redirect_uri=http://webapplication16742.azurewebsites.net/auth/fb/' + encodeURIComponent('@ViewBag.User'));
+        window.location.replace('https://www.facebook.com/dialog/oauth?client_id=619387381484849&scope=user_posts&redirect_uri=http://webapplication16742.azurewebsites.net/auth/fb/' + window.btoa('@ViewBag.User'));
     });
 
     $(".deletesubaccount").click(function () {
