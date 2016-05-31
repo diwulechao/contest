@@ -30,14 +30,5 @@ namespace WebApplication1.Controllers
             return View("IndexWithUser");
         }
 
-        public async Task<ActionResult> cb(string code, string useremail,string provider)
-        {
-            using (var client = new HttpClient())
-            {
-                
-            }
-
-            return Redirect("/home/index?user=" + useremail);
-        }
     }
 }
