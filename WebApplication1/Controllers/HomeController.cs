@@ -12,33 +12,41 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        public static string accesstoken;
+        public static string connectString = "Server=tcp:sqlserverwuditest.database.windows.net,1433;Data Source=sqlserverwuditest.database.windows.net;Initial Catalog=sqlinstancewuditest;Persist Security Info=False;User ID=diwulechao;Password=pwdforwudisQl3;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-        public ActionResult Index()
+        public ActionResult Index(string user)
         {
-            return View();
+            if (string.IsNullOrEmpty(user))
+                return View();
+            ViewBag.User = user;
+
+            var accountinfo = TokenController.getAllInternal(user);
+            foreach (var p in accountinfo.accountlist)
+            {
+                p.token = "";
+            }
+
+            ViewBag.Data = accountinfo;
+            return View("IndexWithUser");
         }
 
-        public async Task<ActionResult> About(string code)
+        public async Task<ActionResult> cb(string code, string useremail,string provider)
         {
             using (var client = new HttpClient())
             {
-                var s1 = await client.GetStringAsync("https://graph.facebook.com/v2.3/oauth/access_token?client_id=619387381484849&redirect_uri=http://webapplication16742.azurewebsites.net/home/about&client_secret=1f22ecd5cfa27759fbf126531994531c&code=" + code);
+                var s1 = await client.GetStringAsync("https://graph.facebook.com/v2.3/oauth/access_token?client_id=619387381484849&redirect_uri=http://webapplication16742.azurewebsites.net/home/cb&client_secret=1f22ecd5cfa27759fbf126531994531c&code=" + code);
                 TokenClass token = JsonConvert.DeserializeObject<TokenClass>(s1);
-                accesstoken = token.access_token;
-                var tp = await client.GetStringAsync("https://graph.facebook.com/v2.6/me/posts?access_token="+accesstoken);
-                PostData data = JsonConvert.DeserializeObject<PostData>(tp);
-                var ret = "";
-                if (data.data.Count >= 1)
-                {
-                    ret = data.data[0].message;
-                }
-                else ret = accesstoken;
+                //accesstoken = token.access_token;
+                var ac = new WebApplication1.Models.AccountInfo.SubAccount();
+                ac.provider = provider;
+                ac.token = token.access_token;
+                ac.useremail = useremail;
+                ac.userid = "unknow";
 
-                ViewBag.Message = ret;
+                TokenController.addTokenInternal(ac);
             }
 
-            return View();
+            return Redirect("/home/index?user=" + useremail);
         }
     }
 }
