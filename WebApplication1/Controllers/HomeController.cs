@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         {
             using (var client = new HttpClient())
             {
-                var s1 = await client.GetStringAsync("https://graph.facebook.com/v2.3/oauth/access_token?client_id=619387381484849&redirect_uri=http://webapplication16742.azurewebsites.net/home/cb&client_secret=1f22ecd5cfa27759fbf126531994531c&code=" + code);
+                var s1 = await client.GetStringAsync("https://graph.facebook.com/v2.3/oauth/access_token?client_id=619387381484849&redirect_uri=http://webapplication16742.azurewebsites.net/home/cb?useremail=" + useremail + "&client_secret=1f22ecd5cfa27759fbf126531994531c&code=" + code);
                 TokenClass token = JsonConvert.DeserializeObject<TokenClass>(s1);
                 //accesstoken = token.access_token;
                 var ac = new WebApplication1.Models.AccountInfo.SubAccount();
