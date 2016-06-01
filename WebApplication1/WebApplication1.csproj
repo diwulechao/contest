@@ -128,6 +128,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountInfo.cs" />
+    <Compile Include="Models\FbMe.cs" />
     <Compile Include="Models\PostData.cs" />
     <Compile Include="Models\TokenClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
