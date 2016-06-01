@@ -23,13 +23,16 @@ namespace WebApplication1.Controllers
                 var redirecturl = "http://webapplication16742.azurewebsites.net/auth/fb/" + useremail;
                 var s1 = await client.GetStringAsync("https://graph.facebook.com/v2.3/oauth/access_token?client_id=619387381484849&redirect_uri=" + redirecturl + "&client_secret=1f22ecd5cfa27759fbf126531994531c&code=" + code);
                 TokenClass token = JsonConvert.DeserializeObject<TokenClass>(s1);
-                //accesstoken = token.access_token;
+
+                var s2 = await client.GetStringAsync("https://graph.facebook.com/v2.6/me?access_token=" + token.access_token);
+                var fbme = JsonConvert.DeserializeObject<FbMe>(s2);
+
                 var ac = new WebApplication1.Models.AccountInfo.SubAccount();
                 ac.provider = "fb";
                 ac.token = token.access_token;
                 ac.useremail = realuseremail;
-                ac.userid = "unknow";
-
+                ac.userid = fbme.id;
+                ac.username = fbme.name;
                 TokenController.addTokenInternal(ac);
             }
 

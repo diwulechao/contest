@@ -15,6 +15,7 @@ namespace WebApplication1.Models
             public string useremail;
             public string token;
             public string userid;
+            public string username;
             public string id;
             public string provider;
         }

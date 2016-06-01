@@ -75,12 +75,13 @@ namespace WebApplication1.Controllers
             new SqlConnection(HomeController.connectString))
             {
                 // Create the Command and Parameter objects.
-                string queryString = "insert into mTable values (@useremail,@provider,@token,@userid, NEWID())";
+                string queryString = "insert into mTable values (@useremail,@provider,@token,@userid, NEWID(),@username)";
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.AddWithValue("@useremail", account.useremail);
                 command.Parameters.AddWithValue("@token", account.token);
                 command.Parameters.AddWithValue("@userid", account.userid);
                 command.Parameters.AddWithValue("@provider", account.provider);
+                command.Parameters.AddWithValue("@username", account.username);
 
                 try
                 {
@@ -126,6 +127,11 @@ namespace WebApplication1.Controllers
                     }
 
                     tp.id = reader.GetString(4);
+                    if (!reader.IsDBNull(5))
+                    {
+                        tp.username = reader.GetString(5);
+                    }
+
                     ret.accountlist.Add(tp);
                 }
                 reader.Close();

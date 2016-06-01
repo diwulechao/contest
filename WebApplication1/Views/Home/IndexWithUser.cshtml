@@ -13,7 +13,7 @@
     @for (var i = 0; i < ViewBag.Data.accountlist.Count; i++)
     {
         <tr>
-            <td> <p style="width:300px"> test acount</p> </td>
+            <td> <p style="width:300px"> @ViewBag.Data.accountlist[i].username </p> </td>
             <td><button class="deletesubaccount" tp="@ViewBag.Data.accountlist[i].id"  style="margin-left:20px;margin-bottom:10px"> Delete This Account</button> </td>
         </tr>
     }
